@@ -30,22 +30,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+    const contentTexts = document.querySelectorAll(".accordion__content");
+    const clicks = document.querySelectorAll(".click");
+
+    for (let i = 0; i < clicks.length; i++) {
+        clicks[i].addEventListener("click", function () {
+            alert('abc')
+
+            if (contentTexts[i].classList.contains("accordion__active")) {
+                clicks[i].setAttribute("src", "./images/faq-container/open.png");
+            } else {
+                clicks[i].setAttribute("src", "./images/faq-container/close.png");
+            }
+            contentTexts[i].classList.toggle("accordion__active");
+
+        });
+    }
+
+
+
 });
 
-
-const contentTexts = document.querySelectorAll(".accordion__content");
-const clicks = document.querySelectorAll(".click");
-
-for (let i = 0; i < clicks.length; i++) {
-    clicks[i].addEventListener("click", function () {
-        alert('abc')
-
-        if (contentTexts[i].classList.contains("accordion__active")) {
-            clicks[i].setAttribute("src", "./images/faq-container/open.png");
-        } else {
-            clicks[i].setAttribute("src", "./images/faq-container/close.png");
-        }
-        contentTexts[i].classList.toggle("accordion__active");
-
-    });
-}
